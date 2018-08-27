@@ -1,0 +1,280 @@
+﻿<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+
+<style type="text/css">
+
+#vertical-slider {
+    height: 2000px;
+    width: 500px;
+    margin-left: 50px;
+}
+
+#flat-slider.ui-slider {
+  background: #d5cebc;
+  border: none;
+  border-radius: 0; }
+                    
+  #flat-slider.ui-slider .ui-slider-handle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50% 50% 0;
+    border-color: transparent;
+    transition: border 0.4s ease; }
+                    
+    #flat-slider.ui-slider .ui-slider-handle.ui-state-hover, 
+    #flat-slider.ui-slider .ui-slider-handle.ui-state-focus, 
+    #flat-slider.ui-slider .ui-slider-handle.ui-state-active {
+      border-color: #172f38; }
+                    
+  #flat-slider.ui-slider .ui-slider-pip .ui-slider-line {
+    background: #d5cebc;
+    transition: all 0.4s ease; }
+                    
+  #flat-slider.ui-slider.ui-slider-horizontal {
+    height: 6px; }
+                    
+    #flat-slider.ui-slider.ui-slider-horizontal .ui-slider-handle {
+      -webkit-transform: rotateZ(45deg);
+              transform: rotateZ(45deg);
+      top: -25px;
+      margin-left: -10px; }
+                    
+    #flat-slider.ui-slider.ui-slider-horizontal .ui-slider-pip {
+      top: 10px; }
+                    
+      #flat-slider.ui-slider.ui-slider-horizontal .ui-slider-pip .ui-slider-line {
+        width: 2px;
+        height: 10px;
+        margin-left: -1px; }
+                    
+      #flat-slider.ui-slider.ui-slider-horizontal .ui-slider-pip[class*=ui-slider-pip-selected] .ui-slider-line {
+        height: 20px; }
+                    
+      #flat-slider.ui-slider.ui-slider-horizontal .ui-slider-pip.ui-slider-pip-inrange .ui-slider-line {
+        height: 12px; }
+                    
+  #flat-slider.ui-slider.ui-slider-vertical {
+    width: 20px;
+    height: 200px;
+    display: inline-block;
+    margin: 0 15%; }
+                    
+    #flat-slider.ui-slider.ui-slider-vertical .ui-slider-handle {
+      -webkit-transform: rotateZ(-45deg);
+              transform: rotateZ(-45deg);
+      left: -25px;
+      margin-bottom: -10px; }
+                    
+    #flat-slider.ui-slider.ui-slider-vertical .ui-slider-pip {
+      left: 10px; }
+                    
+      #flat-slider.ui-slider.ui-slider-vertical .ui-slider-pip .ui-slider-line {
+        height: 2px;
+        width: 10px;
+        margin-top: -1px; }
+                    
+      #flat-slider.ui-slider.ui-slider-vertical .ui-slider-pip[class*=ui-slider-pip-selected] .ui-slider-line {
+        width: 20px; }
+                    
+      #flat-slider.ui-slider.ui-slider-vertical .ui-slider-pip.ui-slider-pip-inrange .ui-slider-line {
+        width: 12px; }
+                    
+      #flat-slider.ui-slider.ui-slider-vertical .ui-slider-handle .ui-slider-tip,
+      #flat-slider.ui-slider.ui-slider-vertical .ui-slider-handle[class*=ui-state-] .ui-slider-tip {
+        visibility: visible;
+        opacity: 1;
+        border: none;
+        background: transparent;
+        left: 50%;
+        width: 30px;
+        margin-left: -15px;
+        text-align: center;
+        color: white;
+        font-weight: normal;
+        top: 10px;
+        -webkit-transform: rotateZ(45deg);
+                transform: rotateZ(45deg); }
+                    
+        #flat-slider.ui-slider.ui-slider-vertical .ui-slider-handle .ui-slider-tip:before,
+        #flat-slider.ui-slider.ui-slider-vertical .ui-slider-handle[class*=ui-state-] .ui-slider-tip:before {
+          display: none; }
+                    
+#flat-slider .ui-slider-handle,
+#flat-slider .ui-slider-range,
+#flat-slider .ui-slider-pip[class*=ui-slider-pip-selected] .ui-slider-line,
+#flat-slider .ui-slider-pip.ui-slider-pip-inrange .ui-slider-line {
+  background-color: #25daa5; }
+                    
+                    
+#flat-slider-vertical-1 .ui-slider-handle,
+#flat-slider-vertical-1 .ui-slider-range,
+#flat-slider-vertical-1 .ui-slider-pip[class*=ui-slider-pip-selected] .ui-slider-line,
+#flat-slider-vertical-1 .ui-slider-pip.ui-slider-pip-inrange .ui-slider-line {
+  background-color: #f27793; }
+                  
+                    
+
+
+</style>
+
+
+</head>
+
+<body>
+<!-- include the jQuery and jQuery UI scripts -->
+<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+                
+<!-- plus a jQuery UI theme, here I use "flick" -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
+<link rel="stylesheet" href="/static/jquery-ui-slider-pips.css">
+
+<script src="/static/jquery-ui-slider-pips.js"></script>
+
+
+
+<script>
+
+            
+$(document).ready(function(){
+    $(".slider")
+                    
+    .slider({ 
+        min: 0, 
+        max: 5,
+        orientation: "vertical"
+    })
+                    
+    .slider("pips", {
+        rest: "label",
+        step: "1"
+    });
+
+    $("#flat-slider")
+    .slider({
+        max: 50,
+        min: 0,
+        range: true,
+        values: [15, 35]
+    })
+    .slider("pips", {
+        first: "pip",
+        last: "pip"
+    });
+                    
+    $("#flat-slider-vertical-1,#flat-slider-vertical-2,#flat-slider-vertical-3,#flat-slider-vertical-4,#flat-slider-vertical-5,#flat-slider-vertical-6,#flat-slider-vertical-7")
+        .slider({
+            max: 10,
+            min: 0,
+            range: "min",
+            value: {{lastobj.0}},
+            orientation: "vertical"
+        })
+        .slider("pips", {
+            first: "pip",
+            last: "pip"
+        })
+        .slider("float");
+        
+    $("#flat-slider-vertical-2").slider({value:{{lastobj.1}}})
+    $("#flat-slider-vertical-3").slider({value:{{lastobj.2}}})
+    $("#flat-slider-vertical-4").slider({value:{{lastobj.3}}})
+    $("#flat-slider-vertical-5").slider({value:{{lastobj.4}}})
+    $("#flat-slider-vertical-6").slider({value:{{lastobj.5}}})
+    $("#flat-slider-vertical-7").slider({value:{{lastobj.6}}})
+
+
+    var frm = $("#ajax-form");
+    frm.submit(function (e) {
+        e.preventDefault();
+        vals = "Saved your ratings. Your selections are ";
+        vals += "Wellbeing: " + $("#flat-slider-vertical-1").slider("option", "value");
+        vals += ", Company Confidence: " + $("#flat-slider-vertical-2").slider("option", "value");
+        vals += ", Company Connections: " + $("#flat-slider-vertical-3").slider("option", "value");
+        vals += ", People Interactions: " + $("#flat-slider-vertical-4").slider("option", "value");
+        vals += ", Growth: " + $("#flat-slider-vertical-5").slider("option", "value");     
+        vals += ", Overall Feeling: " + $("#flat-slider-vertical-6").slider("option", "value");
+        vals += ", Critical Thinking: " + $("#flat-slider-vertical-7").slider("option", "value");
+
+        datastr = "r0=" +  $("#flat-slider-vertical-1").slider("option", "value");
+        datastr += "&r1=" +  $("#flat-slider-vertical-2").slider("option", "value");
+        datastr += "&r2=" +  $("#flat-slider-vertical-3").slider("option", "value");
+        datastr += "&r3=" +  $("#flat-slider-vertical-4").slider("option", "value");
+        datastr += "&r4=" + $("#flat-slider-vertical-5").slider("option", "value");
+        datastr += "&r5=" + $("#flat-slider-vertical-6").slider("option", "value");
+        datastr += "&r6=" + $("#flat-slider-vertical-7").slider("option", "value");
+        //alert(datastr);
+
+        $.ajax({
+            type: frm.attr('method'),
+            url: ("/snap/addratings?"+datastr),
+            success: function(response){
+                if (response!="Inserted")
+                    alert(response);
+                else
+                    alert(vals);
+                },
+            error: function(data){
+                alert("Error");
+                }
+        });
+    });
+
+});
+
+
+
+</script>
+
+<a href="/snap/trend">My Trend</a>
+<a href="/snap/alltrend">Overall Trend</a>
+<a href="/accounts/logout">Logout</a>
+                   
+<form id="ajax-form" method="get">
+
+<table>
+    <tr>
+        <td colspan="7" align="center" height="100"><br>How do you feel today?</td>
+    </tr>
+    <tr>
+        <td><div class="vertical" align="center" ><div id="flat-slider-vertical-1"></div></div></td>
+        <td><div class="vertical" align="center"><div id="flat-slider-vertical-2"></div></div></td>
+        <td><div class="vertical" align="center"><div id="flat-slider-vertical-3"></div></div></td>
+        <td><div class="vertical" align="center"><div id="flat-slider-vertical-4"></div></div></td>
+        <td><div class="vertical" align="center"><div id="flat-slider-vertical-5"></div></div></td>
+        <td><div class="vertical" align="center"><div id="flat-slider-vertical-6"></div></div></td>
+        <td><div class="vertical" align="center"><div id="flat-slider-vertical-7"></div></div></td>
+    </tr>
+    <tr>
+        <td height="50" align="center" bgcolor='#1f77b4'>Wellbeing</td>
+        <td height="50" align="center" bgcolor='#ff7f0e'>Company<br>Confidence</td>
+        <td height="50" align="center" bgcolor='#2ca02c'>Company<br>Connections</td>
+        <td height="50" align="center" bgcolor='#d62728'>People<br>Interactions</td>
+        <td height="50" align="center" bgcolor='#9467bd'>Growth</td>
+        <td height="50" align="center" bgcolor='#8c564b'>Overall<br>Feeling</td>
+        <td height="50" align="center" bgcolor='#e377c2'>Critical<br>Thinking</td>
+    </tr>    
+    <tr>
+        <td height="50" align="center" >Worklife balance<br>general health<br>personal life</td>
+        <td height="50" align="center">Company direction/vision<br>decisions<br>likely success</td>
+        <td height="50" align="center">Values alignment<br>commitment<br>alignment</td>
+        <td height="50" align="center">Work relationships<br>team dynamics</td>
+        <td height="50" align="center">Learning<br>making progress<br>momentum</td>
+        <td height="50" align="center">Your general<br>overall feeling<br>about the company</td>
+        <td height="50" align="center">Critical thinking</td>
+    </tr>
+
+</table>
+
+<p><button type="submit">Save</button>
+
+</form>
+
+
+
+</body>
+
+</html>
+
